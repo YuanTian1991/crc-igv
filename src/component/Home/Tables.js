@@ -22,12 +22,11 @@ export default function ContentEditing(props) {
       skipEmptyLines: true,
       delimitersToGuess: [',', '	', '|', '\t'],
         complete: (results) => {
-          console.log(results);
+          handleFetchDataSuccess(results.data)
           // setData(results);
         },
       }
     );
-    console.log(result);
   }, []);
 
   const handleFetchDataSuccess = (tableData) => {
