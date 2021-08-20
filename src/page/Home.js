@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const classes = useStyles();
   const [browser, setBrowser] = useState(null);
+  const [browser500, setBrowser500] = useState(null);
   const [targetGene, setTargetGene] = useState("BRCA1");
   const [glIndex, setGLIndex] = useState(0);
 
@@ -97,8 +98,46 @@ export default function Home() {
         },
       ],
     };
-    return igv.createBrowser(igvContainer, igvOptions).then(function (browser) {
+
+
+    igv.createBrowser(igvContainer, igvOptions).then(function (browser) {
       setBrowser(browser);
+    });
+
+
+    var igvContainer_500 = document.getElementById("igv-div_500");
+    var igvOptions_500 = {
+      genome: "hg38",
+      locus: "BRCA1",
+      tracks: [
+        {
+          name: "NC",
+          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1ae598ea-029b-49a3-a0fc-2b25722a0a25/NC_Sig.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210820T132449Z&X-Amz-Expires=86400&X-Amz-Signature=0723472c6f1946c71fe750fd8980308bb5ce0f8c49f47a25de6e70e387882a74&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22NC_Sig.bw%22",
+          type: "wig",
+          color: "rgb(244, 187, 74, 0.4)",
+          autoscaleGroup: 1,
+          min: "0",
+        },
+        {
+          name: "TC",
+          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a649aad2-9535-411a-8b6c-6805fd7b2560/TC_Sig.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210820T132503Z&X-Amz-Expires=86400&X-Amz-Signature=ab209215e18ef5aa0d4ab9dea45c9da2a7430feed90659ddf9759a071c92eed4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22TC_Sig.bw%22",
+          type: "wig",
+          color: "rgb(8, 146, 165, 0.4)",
+          autoscaleGroup: 1,
+          min: "0",
+        },
+        {
+          name: "LT",
+          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/66e860dc-caad-43fa-98a6-e841c3be4938/LT_Sig.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210820T132511Z&X-Amz-Expires=86400&X-Amz-Signature=642466410eb878a05a5e05b5281a3ff40d56d602db39dfb463c5f4d0ed94428b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22LT_Sig.bw%22",
+          type: "wig",
+          color: "rgb(48, 71, 94, 0.4)",
+          autoscaleGroup: 1,
+          min: "0",
+        },
+      ],
+    };
+    igv.createBrowser(igvContainer_500, igvOptions_500).then(function (browser) {
+      setBrowser500(browser);
     });
   }, []);
 
@@ -110,6 +149,10 @@ export default function Home() {
   useEffect(() => {
     if (browser !== null) {
       browser.search(targetGene);
+    }
+
+    if (browser500 !== null) {
+      browser500.search(targetGene);
     }
   }, [targetGene]);
 
@@ -154,6 +197,8 @@ export default function Home() {
           </Grid>
           <Grid item xs={6}>
             <div id="igv-div" className={classes.igvStyle}></div>
+
+            <div id="igv-div_500" className={classes.igvStyle}></div>
           </Grid>
         </Grid>
       </Container>
