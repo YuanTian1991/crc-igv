@@ -9,14 +9,14 @@ import { Column } from "react-base-table";
 import GeneCell from './GeneCell'
 import VirtualTable from "./VirtualTable";
 
-export default function ContentEditing(props) {
+export default function Tables(props) {
   const classes = useStyles();
   const [parsedCSV, setParsedCSV] = useState(null);
 
   useEffect(() => {
     // dispatch(fetchTable(props.tableName.replace(/[ ]/gi, '_').toLowerCase()))
     const result = readRemoteFile(
-      "https://raw.githubusercontent.com/YuanTian1991/crc-igv/master/data/GeneBody5hmCGene.csv",
+      "https://raw.githubusercontent.com/YuanTian1991/crc-igv/master/data/" + props.geneList + ".csv",
       {
         header: true,
       dynamicTyping: true,
@@ -28,7 +28,7 @@ export default function ContentEditing(props) {
         },
       }
     );
-  }, []);
+  }, [props.geneList]);
 
   const handleFetchDataSuccess = (tableData) => {
     const tmpColumn = Object.keys(tableData[0]).map((col, colIndex) => {
@@ -71,7 +71,7 @@ export default function ContentEditing(props) {
           <VirtualTable
             tableColumn={parsedCSV.tableColumn}
             tableRow={parsedCSV.tableRow}
-            height={"80vh"}
+            height={"75vh"}
             rowKey={"geneName"}
           />
         </div>
