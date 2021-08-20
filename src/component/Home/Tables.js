@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { readString, readRemoteFile } from "react-papaparse";
 import { Column } from "react-base-table";
 
+import GeneCell from './GeneCell'
 import VirtualTable from "./VirtualTable";
 
 export default function ContentEditing(props) {
@@ -31,15 +32,27 @@ export default function ContentEditing(props) {
 
   const handleFetchDataSuccess = (tableData) => {
     const tmpColumn = Object.keys(tableData[0]).map((col, colIndex) => {
+
+      let frozen
+      let cellRenderer
+      let width = 100
+      if(col === 'geneName') {
+        frozen = Column.FrozenDirection.LEFT
+        cellRenderer =  ({ cellData, column }) => { return(<GeneCell cellData={cellData} colName={column} selectGene={handleSelectGene} />)}
+        width = 150
+      }
+
       return {
         name: col,
         title: col,
         key: col,
         dataKey: col,
-        width: 180,
-        height: 40,
+        width: width,
+        height: 30,
         resizable: true,
         align: Column.Alignment.CENTER,
+        frozen:frozen,
+        cellRenderer: cellRenderer,
         // cellRenderer: ({ cellData, column }) => <EditableCell cellData={cellData} colName={column} />,
         sortable: true,
       };
@@ -47,15 +60,19 @@ export default function ContentEditing(props) {
     setParsedCSV({ tableColumn: tmpColumn, tableRow: tableData });
   };
 
+  const handleSelectGene = (gene) => {
+    props.selectGene(gene)
+  }
+
   return (
     <div className={classes.root}>
       {parsedCSV !== null ? (
-        <div>
+        <div style={{border: '1px solid #eeeeee'}}>
           <VirtualTable
             tableColumn={parsedCSV.tableColumn}
             tableRow={parsedCSV.tableRow}
-            height={"30em"}
-            rowKey={props.rowKey}
+            height={"80vh"}
+            rowKey={"geneName"}
           />
         </div>
       ) : (

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -7,6 +7,7 @@ import {
   Typography,
   Link,
   Paper,
+  Button,
 } from "@material-ui/core";
 
 import Tables from "../component/Home/Tables"
@@ -33,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(0),
   },
   footer: {
     padding: theme.spacing(3, 2),
@@ -55,6 +56,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const classes = useStyles();
+  const [browser, setBrowser] = useState(null)
+  const [targetGene, setTargetGene] = useState("BRCA1")
 
   useEffect(() => {
     var igvContainer = document.getElementById("igv-div");
@@ -88,8 +91,21 @@ export default function Home() {
     }
     ]
     };
-    return igv.createBrowser(igvContainer, igvOptions);
+    return igv.createBrowser(igvContainer, igvOptions).then(function (browser) {
+      setBrowser(browser)
+  })
   }, []);
+
+  const handleChangeIGV = (gene) => {
+    console.log(gene)
+    setTargetGene(gene)
+  }
+
+  useEffect(() => {
+    if(browser !== null) {
+      browser.search(targetGene)
+    }
+  }, [targetGene])
 
   return (
     <div className={classes.root}>
@@ -97,7 +113,11 @@ export default function Home() {
       <Container component="main" className={classes.main} maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Tables />
+            <div style={{marginBottom: '10px'}}>
+              <Button size="small" variant="contained" color="primary" style={{margin: "5px"}}>Promoter</Button>
+              <Button size="small" variant="contained" color="primary" style={{margin: "5px"}}>GeneBody</Button>
+              </div>
+            <Tables selectGene={(gene) => handleChangeIGV(gene)} />
           </Grid>
           <Grid item xs={6}>
             <div id="igv-div" className={classes.igvStyle}></div>
