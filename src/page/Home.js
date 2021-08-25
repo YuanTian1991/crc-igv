@@ -74,7 +74,7 @@ export default function Home() {
       tracks: [
         {
           name: "NC",
-          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/283c9d5e-eb5b-4a79-a95a-85d8dfd9d032/NC.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210819%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210819T175900Z&X-Amz-Expires=86400&X-Amz-Signature=b4318bd94dd16b4b806c142f811c78e39c3a50f072d1fc7bea8968e27569f314&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22NC.bw%22",
+          url: "https://crc-igv.s3.eu-west-2.amazonaws.com/BigWig/NC_smallbin.bw",
           type: "wig",
           color: "rgb(244, 187, 74, 0.4)",
           autoscaleGroup: 1,
@@ -82,7 +82,7 @@ export default function Home() {
         },
         {
           name: "TC",
-          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fceb80fe-e19c-40e1-8ce9-978ba86c0e1b/TC.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210819%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210819T180353Z&X-Amz-Expires=86400&X-Amz-Signature=9cf7d59cae1cd69d3ce86923879bea6f918dc8f14fe14d8009729bee0ad151eb&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22TC.bw%22",
+          url: "https://crc-igv.s3.eu-west-2.amazonaws.com/BigWig/TC_smallbin.bw",
           type: "wig",
           color: "rgb(8, 146, 165, 0.4)",
           autoscaleGroup: 1,
@@ -90,7 +90,7 @@ export default function Home() {
         },
         {
           name: "LT",
-          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/931602fe-3335-4ab9-b5b5-f38e53a89f6f/LT.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210819%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210819T180401Z&X-Amz-Expires=86400&X-Amz-Signature=7ccdffa3608003be3a79687171d7ef88e1791be0c12b84ac80324842aa75bfd5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22LT.bw%22",
+          url: "https://crc-igv.s3.eu-west-2.amazonaws.com/BigWig/LT_smallbin.bw",
           type: "wig",
           color: "rgb(48, 71, 94, 0.4)",
           autoscaleGroup: 1,
@@ -112,7 +112,7 @@ export default function Home() {
       tracks: [
         {
           name: "NC",
-          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1ae598ea-029b-49a3-a0fc-2b25722a0a25/NC_Sig.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210820T132449Z&X-Amz-Expires=86400&X-Amz-Signature=0723472c6f1946c71fe750fd8980308bb5ce0f8c49f47a25de6e70e387882a74&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22NC_Sig.bw%22",
+          url: "https://crc-igv.s3.eu-west-2.amazonaws.com/BigWig/NC_Sig.bw",
           type: "wig",
           color: "rgb(244, 187, 74, 0.4)",
           autoscaleGroup: 1,
@@ -120,7 +120,7 @@ export default function Home() {
         },
         {
           name: "TC",
-          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a649aad2-9535-411a-8b6c-6805fd7b2560/TC_Sig.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210820T132503Z&X-Amz-Expires=86400&X-Amz-Signature=ab209215e18ef5aa0d4ab9dea45c9da2a7430feed90659ddf9759a071c92eed4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22TC_Sig.bw%22",
+          url: "https://crc-igv.s3.eu-west-2.amazonaws.com/BigWig/TC_Sig.bw",
           type: "wig",
           color: "rgb(8, 146, 165, 0.4)",
           autoscaleGroup: 1,
@@ -128,8 +128,7 @@ export default function Home() {
         },
         {
           name: "LT",
-          url: "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/66e860dc-caad-43fa-98a6-e841c3be4938/LT_Sig.bw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210820%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210820T132511Z&X-Amz-Expires=86400&X-Amz-Signature=642466410eb878a05a5e05b5281a3ff40d56d602db39dfb463c5f4d0ed94428b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22LT_Sig.bw%22",
-          type: "wig",
+          url: "https://crc-igv.s3.eu-west-2.amazonaws.com/BigWig/LT_Sig.bw",
           color: "rgb(48, 71, 94, 0.4)",
           autoscaleGroup: 1,
           min: "0",
