@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react';
-import { makeStyles, Button } from '@material-ui/core';
+import React, { useEffect } from "react";
+import { makeStyles, Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   input: {
-    fontSize: '13px'
-  }
+    fontSize: "13px",
+  },
 }));
 
 const GeneCell = (props) => {
   const classes = useStyles();
 
-  useEffect(() => {
-  }, [props]);
+  useEffect(() => {}, [props]);
 
   return (
     <span>
-      <Button size="small" color="primary" onClick={() => props.selectGene(props.cellData)}>
-      {props.cellData}
-        </Button>
+      <Button
+        size="small"
+        color="primary"
+        onClick={() => props.selectGene(props.rowData)}
+      >
+        {props.cellData}
+      </Button>
       {/* <InputBase
         className={classes.input}
         value={props.cellData}

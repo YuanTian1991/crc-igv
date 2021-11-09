@@ -62,8 +62,8 @@ export default function Home() {
   const [glIndex, setGLIndex] = useState(0);
 
   const geneList = [
-    { title: "Promoter 5hmC Gene List", file: "Promoter5hmCGene" },
-    { title: "GeneBody 5hmC Gene List", file: "GeneBody5hmCGene" },
+    { title: "Promoter 5hmC Enrichment", file: "promoterTable.csv" },
+    { title: "GeneBody 5hmC Enrichment", file: "genebodyTable.csv" },
   ];
 
   useEffect(() => {

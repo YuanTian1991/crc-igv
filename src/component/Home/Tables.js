@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { readString, readRemoteFile } from "react-papaparse";
 import { Column } from "react-base-table";
 
-import GeneCell from './GeneCell'
+import GeneCell from "./GeneCell";
 import VirtualTable from "./VirtualTable";
 
 export default function Tables(props) {
@@ -16,14 +16,15 @@ export default function Tables(props) {
   useEffect(() => {
     // dispatch(fetchTable(props.tableName.replace(/[ ]/gi, '_').toLowerCase()))
     const result = readRemoteFile(
-      "https://raw.githubusercontent.com/YuanTian1991/crc-igv/master/data/" + props.geneList + ".csv",
+      "https://raw.githubusercontent.com/YuanTian1991/crc-igv/master/data/" +
+        props.geneList,
       {
         header: true,
-      dynamicTyping: true,
-      skipEmptyLines: true,
-      delimitersToGuess: [',', '	', '|', '\t'],
+        dynamicTyping: true,
+        skipEmptyLines: true,
+        delimitersToGuess: [",", "	", "|", "\t"],
         complete: (results) => {
-          handleFetchDataSuccess(results.data)
+          handleFetchDataSuccess(results.data);
           // setData(results);
         },
       }
@@ -32,16 +33,23 @@ export default function Tables(props) {
 
   const handleFetchDataSuccess = (tableData) => {
     const tmpColumn = Object.keys(tableData[0]).map((col, colIndex) => {
-
-      let frozen
-      let cellRenderer
-      let width = 100
-      if(col === 'geneName') {
-        frozen = Column.FrozenDirection.LEFT
-        cellRenderer =  ({ cellData, column }) => { return(<GeneCell cellData={cellData} colName={column} selectGene={handleSelectGene} />)}
-        width = 150
+      let frozen;
+      let cellRenderer;
+      let width = 100;
+      if (col === "geneSymbol") {
+        frozen = Column.FrozenDirection.LEFT;
+        cellRenderer = ({ cellData, column, rowData }) => {
+          return (
+            <GeneCell
+              cellData={cellData}
+              colName={column}
+              rowData={rowData}
+              selectGene={handleSelectGene}
+            />
+          );
+        };
+        width = 150;
       }
-
       return {
         name: col,
         title: col,
@@ -51,7 +59,7 @@ export default function Tables(props) {
         height: 30,
         resizable: true,
         align: Column.Alignment.CENTER,
-        frozen:frozen,
+        frozen: frozen,
         cellRenderer: cellRenderer,
         // cellRenderer: ({ cellData, column }) => <EditableCell cellData={cellData} colName={column} />,
         sortable: true,
@@ -61,13 +69,16 @@ export default function Tables(props) {
   };
 
   const handleSelectGene = (gene) => {
-    props.selectGene(gene)
-  }
+    console.log(gene);
+
+    let coordinate = gene.chr + ":" + gene.start + "-" + gene.end;
+    props.selectGene(coordinate);
+  };
 
   return (
     <div className={classes.root}>
       {parsedCSV !== null ? (
-        <div style={{border: '1px solid #eeeeee'}}>
+        <div style={{ border: "1px solid #eeeeee" }}>
           <VirtualTable
             tableColumn={parsedCSV.tableColumn}
             tableRow={parsedCSV.tableRow}
