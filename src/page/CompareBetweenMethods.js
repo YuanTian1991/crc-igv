@@ -62,7 +62,7 @@ export default function CompareBetweenMethods() {
   const [glIndex, setGLIndex] = useState(0);
 
   const geneList = [
-    { title: "Promoter 5hmC Enrichment", file: "promoterTable.csv" },
+    { title: "Promoter 5hmC Enrichment", file: "TC_promoter_CompareTable.csv" },
     { title: "GeneBody 5hmC Enrichment", file: "genebodyTable.csv" },
   ];
 
