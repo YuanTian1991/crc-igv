@@ -58,14 +58,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CompareBetweenMethods() {
+export default function CompareBetweenMethods(props) {
   const classes = useStyles();
   const [browser, setBrowser] = useState(null);
   const [browser500, setBrowser500] = useState(null);
   const [targetGene, setTargetGene] = useState("BRCA1");
   const [glIndex, setGLIndex] = useState(0);
 
-  const [pheno, setPheno] = useState(null);
+  const [pheno, setPheno] = useState("NC");
   const [geneFeature, setGeneFeature] = useState("promoter");
 
   const geneList = [
@@ -74,6 +74,8 @@ export default function CompareBetweenMethods() {
   ];
 
   useEffect(() => {
+    setPheno(props.match.params.pheno);
+
     var igvContainer = document.getElementById("igv-div");
     var igvOptions = {
       genome: "hg38",
@@ -135,6 +137,10 @@ export default function CompareBetweenMethods() {
     setGLIndex(index);
   };
 
+  const handleGeneFeatureChange = (event) => {
+    setGeneFeature(event.target.value);
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -163,7 +169,7 @@ export default function CompareBetweenMethods() {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={geneFeature}
-                  // onChange={handleChange}
+                  onChange={handleGeneFeatureChange}
                 >
                   <MenuItem value={"promoter"}>promoter</MenuItem>
                   <MenuItem value={"genebody"}>genebody</MenuItem>
@@ -195,7 +201,7 @@ export default function CompareBetweenMethods() {
 
             <Tables
               selectGene={(gene) => handleChangeIGV(gene)}
-              geneList={geneList[glIndex].file}
+              geneList={pheno + "_" + geneFeature + "_CompareTable.csv"}
             />
           </Grid>
           <Grid item xs={6}>

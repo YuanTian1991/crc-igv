@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/HydroEnrich" component={HydroEnrich} />
           <Route
             exact
-            path="/CompareBetweenMethods"
+            path="/CompareBetweenMethods/:pheno"
             component={CompareBetweenMethods}
           />
           <Route exact path="/methylation" component={Methylation} />
