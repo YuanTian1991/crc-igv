@@ -14,6 +14,8 @@ import {
   MenuItem,
 } from "@material-ui/core";
 
+import { useHistory } from "react-router-dom";
+
 import Tables from "../component/Home/Tables";
 
 import igv from "igv";
@@ -60,12 +62,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CompareBetweenMethods(props) {
   const classes = useStyles();
+  let history = useHistory();
+
   const [browser, setBrowser] = useState(null);
   const [browser500, setBrowser500] = useState(null);
   const [targetGene, setTargetGene] = useState("BRCA1");
   const [glIndex, setGLIndex] = useState(0);
 
-  const [pheno, setPheno] = useState("NC");
+  const phenoColor = {
+    NC: "rgb(244, 187, 74, 0.4)",
+    TC: "rgb(8, 146, 165, 0.4)",
+    LT: "rgb(48, 71, 94, 0.4)",
+    NL: "rgb(232, 72, 85, 0.4)",
+  };
+
+  const [pheno, setPheno] = useState(null);
   const [geneFeature, setGeneFeature] = useState("promoter");
 
   const geneList = [
@@ -82,10 +93,13 @@ export default function CompareBetweenMethods(props) {
       locus: "BRCA1",
       tracks: [
         {
-          name: "LT",
-          url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/LT_cliped.bw",
+          name: props.match.params.pheno,
+          url:
+            "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/" +
+            props.match.params.pheno +
+            "_cliped.bw",
           type: "wig",
-          color: "rgb(48, 71, 94, 0.4)",
+          color: phenoColor[props.match.params.pheno],
           // autoscaleGroup: 1,
           min: "0",
         },
@@ -102,10 +116,13 @@ export default function CompareBetweenMethods(props) {
       locus: "BRCA1",
       tracks: [
         {
-          name: "LT",
-          url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/LT_SigPeaks_cliped.bw",
+          name: props.match.params.pheno,
+          url:
+            "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/" +
+            props.match.params.pheno +
+            "_SigPeaks_cliped.bw",
           type: "wig",
-          color: "rgb(48, 71, 94, 0.4)",
+          color: phenoColor[props.match.params.pheno],
           // autoscaleGroup: 1,
           min: "0",
         },
@@ -116,7 +133,7 @@ export default function CompareBetweenMethods(props) {
       .then(function (browser) {
         setBrowser500(browser);
       });
-  }, []);
+  }, [props.match.params.pheno]);
 
   const handleChangeIGV = (gene) => {
     console.log(gene);
@@ -133,12 +150,15 @@ export default function CompareBetweenMethods(props) {
     }
   }, [targetGene]);
 
-  const handleChangeGeneList = (index) => {
-    setGLIndex(index);
-  };
-
   const handleGeneFeatureChange = (event) => {
     setGeneFeature(event.target.value);
+  };
+
+  const handleChangePheno = (event) => {
+    // history.push("/CompareBetweenMethods/" + event.target.value);
+    window.location.href =
+      "https://yuantian1991.github.io/crc-igv/#/CompareBetweenMethods/" +
+      event.target.value;
   };
 
   return (
@@ -154,7 +174,7 @@ export default function CompareBetweenMethods(props) {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={pheno}
-                  // onChange={handleChange}
+                  onChange={handleChangePheno}
                 >
                   <MenuItem value={"NC"}>Normal Colon (NC)</MenuItem>
                   <MenuItem value={"TC"}>Tumour Colon (TC)</MenuItem>
@@ -176,26 +196,8 @@ export default function CompareBetweenMethods(props) {
                 </Select>
               </FormControl>
 
-              {/* <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(0)}
-              >
-                Promoter
-              </Button>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(1)}
-              >
-                GeneBody
-              </Button> */}
               <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
-                {geneList[glIndex].title}
+                {pheno + " " + geneFeature + " 5hmC enrichment"}
               </Typography>
             </div>
 
