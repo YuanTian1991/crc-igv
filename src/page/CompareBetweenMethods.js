@@ -8,6 +8,10 @@ import {
   Link,
   Paper,
   Button,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@material-ui/core";
 
 import Tables from "../component/Home/Tables";
@@ -61,8 +65,11 @@ export default function CompareBetweenMethods() {
   const [targetGene, setTargetGene] = useState("BRCA1");
   const [glIndex, setGLIndex] = useState(0);
 
+  const [pheno, setPheno] = useState(null);
+  const [geneFeature, setGeneFeature] = useState("promoter");
+
   const geneList = [
-    { title: "Promoter 5hmC Enrichment", file: "TC_promoter_CompareTable.csv" },
+    { title: "Promoter 5hmC Enrichment", file: "LT_promoter_CompareTable.csv" },
     { title: "GeneBody 5hmC Enrichment", file: "genebodyTable.csv" },
   ];
 
@@ -135,7 +142,35 @@ export default function CompareBetweenMethods() {
         <Grid container spacing={3}>
           <Grid item xs={6} style={{ textAlign: "left" }}>
             <div style={{ marginBottom: "10px" }}>
-              <Button
+              <FormControl style={{ minWidth: 200 }}>
+                <InputLabel id="demo-simple-select-label">Phenotype</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={pheno}
+                  // onChange={handleChange}
+                >
+                  <MenuItem value={"NC"}>Normal Colon (NC)</MenuItem>
+                  <MenuItem value={"TC"}>Tumour Colon (TC)</MenuItem>
+                  <MenuItem value={"LT"}>Liver Tumour (LT)</MenuItem>
+                  <MenuItem value={"NL"}>Normal Liver (NL)</MenuItem>
+                </Select>
+              </FormControl>
+
+              <FormControl style={{ minWidth: 200, marginLeft: "20px" }}>
+                <InputLabel id="demo-simple-select-label">Phenotype</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={geneFeature}
+                  // onChange={handleChange}
+                >
+                  <MenuItem value={"promoter"}>promoter</MenuItem>
+                  <MenuItem value={"genebody"}>genebody</MenuItem>
+                </Select>
+              </FormControl>
+
+              {/* <Button
                 size="small"
                 variant="contained"
                 color="primary"
@@ -152,7 +187,7 @@ export default function CompareBetweenMethods() {
                 onClick={() => handleChangeGeneList(1)}
               >
                 GeneBody
-              </Button>
+              </Button> */}
               <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
                 {geneList[glIndex].title}
               </Typography>
