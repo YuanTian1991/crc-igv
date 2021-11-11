@@ -64,6 +64,14 @@ export default function Home() {
   const geneList = [
     { title: "Promoter 5hmC Enrichment", file: "promoterTable.csv" },
     { title: "GeneBody 5hmC Enrichment", file: "genebodyTable.csv" },
+    {
+      title: "Promoter 5hmC Unique Enrichment",
+      file: "UniquePromoterTable.csv",
+    },
+    {
+      title: "GeneBody 5hmC Unique Enrichment",
+      file: "UniqueGeneBodyTable.csv",
+    },
   ];
 
   useEffect(() => {
@@ -199,6 +207,24 @@ export default function Home() {
                 onClick={() => handleChangeGeneList(1)}
               >
                 GeneBody
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                color="primary"
+                style={{ margin: "5px" }}
+                onClick={() => handleChangeGeneList(3)}
+              >
+                Unique Promoter
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                color="primary"
+                style={{ margin: "5px" }}
+                onClick={() => handleChangeGeneList(3)}
+              >
+                Unique GeneBody
               </Button>
               <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
                 {geneList[glIndex].title}

@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <HashRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/HydroEnrich" component={HydroEnrich} />
+          <Route exact path="/" component={HydroEnrich} />
+          <Route exact path="/OldResult" component={Home} />
           <Route
             exact
             path="/CompareBetweenMethods/:pheno"
