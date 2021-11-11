@@ -213,7 +213,7 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(3)}
+                onClick={() => handleChangeGeneList(2)}
               >
                 Unique Promoter
               </Button>
