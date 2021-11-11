@@ -159,6 +159,7 @@ export default function CompareBetweenMethods(props) {
     window.location.href =
       "https://yuantian1991.github.io/crc-igv/#/CompareBetweenMethods/" +
       event.target.value;
+    window.location.reload();
   };
 
   return (
