@@ -93,7 +93,7 @@ export default function CompareBetweenMethods(props) {
       locus: "BRCA1",
       tracks: [
         {
-          name: props.match.params.pheno,
+          name: props.match.params.pheno + " 5hmC",
           url:
             "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/" +
             props.match.params.pheno +
@@ -116,7 +116,7 @@ export default function CompareBetweenMethods(props) {
       locus: "BRCA1",
       tracks: [
         {
-          name: props.match.params.pheno,
+          name: props.match.params.pheno + " 5hmC",
           url:
             "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/" +
             props.match.params.pheno +

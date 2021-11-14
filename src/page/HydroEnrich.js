@@ -81,7 +81,7 @@ export default function Home() {
       locus: "BRCA1",
       tracks: [
         {
-          name: "NC",
+          name: "NC 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/NC_cliped.bw",
           type: "wig",
           color: "rgb(244, 187, 74, 0.4)",
@@ -89,7 +89,7 @@ export default function Home() {
           min: "0",
         },
         {
-          name: "TC",
+          name: "TC 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/TC_cliped.bw",
           type: "wig",
           color: "rgb(8, 146, 165, 0.4)",
@@ -97,7 +97,7 @@ export default function Home() {
           min: "0",
         },
         {
-          name: "LT",
+          name: "LT 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/LT_cliped.bw",
           type: "wig",
           color: "rgb(48, 71, 94, 0.4)",
@@ -105,7 +105,7 @@ export default function Home() {
           min: "0",
         },
         {
-          name: "NL",
+          name: "NL 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/NL_cliped.bw",
           type: "wig",
           color: "rgb(232, 72, 85, 0.4)",
@@ -125,7 +125,7 @@ export default function Home() {
       locus: "BRCA1",
       tracks: [
         {
-          name: "NC",
+          name: "NC 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/NC_sig_cliped.bw",
           type: "wig",
           color: "rgb(244, 187, 74, 0.4)",
@@ -133,7 +133,7 @@ export default function Home() {
           min: "0",
         },
         {
-          name: "TC",
+          name: "TC 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/TC_sig_cliped.bw",
           type: "wig",
           color: "rgb(8, 146, 165, 0.4)",
@@ -141,14 +141,14 @@ export default function Home() {
           min: "0",
         },
         {
-          name: "LT",
+          name: "LT 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/LT_sig_cliped.bw",
           color: "rgb(48, 71, 94, 0.4)",
           autoscaleGroup: 1,
           min: "0",
         },
         {
-          name: "NL",
+          name: "NL 5hmC",
           url: "https://s3.eu-central-1.wasabisys.com/crc-bath/5hmCMergedBW/NL_sig_cliped.bw",
           type: "wig",
           color: "rgb(232, 72, 85, 0.4)",
