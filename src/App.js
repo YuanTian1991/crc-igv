@@ -3,6 +3,8 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import HydroEnrich from "./page/HydroEnrich";
+import RegionEnrich from "./page/RegionEnrich";
+
 import CompareBetweenMethods from "./page/CompareBetweenMethods";
 import Home from "./page/Home";
 import Methylation from "./page/Methylation";
@@ -14,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HydroEnrich} />
           <Route exact path="/OldResult" component={Home} />
+          <Route exact path="/RegionEnrich" component={RegionEnrich} />
           <Route
             exact
             path="/CompareBetweenMethods/:pheno"
