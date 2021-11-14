@@ -62,8 +62,8 @@ export default function Home() {
   const [glIndex, setGLIndex] = useState(0);
 
   const geneList = [
-    { title: "Promoter 5hmC Enrichment", file: "promoterTable.csv" },
-    { title: "GeneBody 5hmC Enrichment", file: "genebodyTable.csv" },
+    { title: "5hmC Significantly Enriched Regions", file: "Region5hmC.csv" },
+    { title: "5mC Significantly Enriched Regions", file: "RegionMeth.csv" },
   ];
 
   useEffect(() => {
@@ -171,7 +171,7 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 style={{ margin: "5px" }}
-                // onClick={() => handleChangeGeneList(0)}
+                onClick={() => handleChangeGeneList(0)}
               >
                 5hmC
               </Button>
@@ -180,19 +180,19 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 style={{ margin: "5px" }}
-                // onClick={() => handleChangeGeneList(1)}
+                onClick={() => handleChangeGeneList(1)}
               >
                 5mC
               </Button>
-              <Button
+              {/* <Button
                 size="small"
                 variant="contained"
                 color="primary"
                 style={{ margin: "5px" }}
-                // onClick={() => handleChangeGeneList(1)}
+                // onClick={() => handleChangeGeneList(2)}
               >
                 Diff-5hmC
-              </Button>
+              </Button> */}
               <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
                 {geneList[glIndex].title}
               </Typography>
