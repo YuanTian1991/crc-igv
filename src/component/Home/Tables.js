@@ -7,6 +7,7 @@ import { readString, readRemoteFile } from "react-papaparse";
 import { Column } from "react-base-table";
 
 import GeneCell from "./GeneCell";
+import NormalCell from "./NormalCell";
 import VirtualTable from "./VirtualTable";
 
 export default function Tables(props) {
@@ -34,7 +35,7 @@ export default function Tables(props) {
   const handleFetchDataSuccess = (tableData) => {
     const tmpColumn = Object.keys(tableData[0]).map((col, colIndex) => {
       let frozen;
-      let cellRenderer;
+      let cellRenderer = ({ cellData }) => <NormalCell cellData={cellData} />;
       let width = 100;
       if (col === "geneSymbol") {
         frozen = Column.FrozenDirection.LEFT;
@@ -61,7 +62,6 @@ export default function Tables(props) {
         align: Column.Alignment.CENTER,
         frozen: frozen,
         cellRenderer: cellRenderer,
-        // cellRenderer: ({ cellData, column }) => <EditableCell cellData={cellData} colName={column} />,
         sortable: true,
       };
     });
