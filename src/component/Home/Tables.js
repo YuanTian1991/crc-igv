@@ -160,7 +160,7 @@ export default function Tables(props) {
           <VirtualTable
             tableColumn={parsedCSV.tableColumn}
             tableRow={onGlobalSearch(globalInput, parsedCSV.tableRow)}
-            height={"75vh"}
+            height={"65vh"}
             rowKey={"geneName"}
           />
         </div>

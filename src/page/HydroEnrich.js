@@ -14,24 +14,10 @@ import Tables from "../component/Home/Tables";
 
 import igv from "igv";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Adele Lab
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
   },
   main: {
     marginTop: theme.spacing(2),
@@ -52,6 +38,14 @@ const useStyles = makeStyles((theme) => ({
     margin: "8px",
     border: "1px solid lightgray",
   },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+    cursor: "pointer",
+    border: "1px solid grey",
+    borderRadius: "5px",
+    margin: "5px",
+  },
 }));
 
 export default function Home() {
@@ -62,15 +56,25 @@ export default function Home() {
   const [glIndex, setGLIndex] = useState(0);
 
   const geneList = [
-    { title: "Promoter 5hmC Enrichment", file: "promoterTable.csv" },
-    { title: "GeneBody 5hmC Enrichment", file: "genebodyTable.csv" },
+    {
+      title: "Promoter 5hmC Enrichment",
+      file: "promoterTable.csv",
+      buttonName: "5hmC Promoter",
+    },
+    {
+      title: "GeneBody 5hmC Enrichment",
+      file: "genebodyTable.csv",
+      buttonName: "5hmC GeneBody",
+    },
     {
       title: "Promoter 5hmC Unique Enrichment",
       file: "UniquePromoterTable.csv",
+      buttonName: "5hmC Unique Promoters",
     },
     {
       title: "GeneBody 5hmC Unique Enrichment",
       file: "UniqueGeneBodyTable.csv",
+      buttonName: "5hmC Unique GeneBodys",
     },
   ];
 
@@ -190,42 +194,19 @@ export default function Home() {
         <Grid container spacing={3}>
           <Grid item xs={6} style={{ textAlign: "left" }}>
             <div style={{ marginBottom: "10px" }}>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(0)}
-              >
-                Promoter
-              </Button>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(1)}
-              >
-                GeneBody
-              </Button>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(2)}
-              >
-                Unique Promoter
-              </Button>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                onClick={() => handleChangeGeneList(3)}
-              >
-                Unique GeneBody
-              </Button>
+              {geneList.map((g, index) => {
+                return (
+                  <Link
+                    color="inherit"
+                    noWrap
+                    variant="body2"
+                    className={classes.toolbarLink}
+                    onClick={() => handleChangeGeneList(index)}
+                  >
+                    {g.buttonName}
+                  </Link>
+                );
+              })}
               <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
                 {geneList[glIndex].title}
               </Typography>
@@ -243,13 +224,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </Container>
-
-      <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography variant="body1">CRC Project IGV App</Typography>
-          <Copyright />
-        </Container>
-      </footer>
     </div>
   );
 }

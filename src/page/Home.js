@@ -14,24 +14,10 @@ import Tables from "../component/Home/Tables";
 
 import igv from "igv";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Adele Lab
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
   },
   main: {
     marginTop: theme.spacing(2),
@@ -201,13 +187,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </Container>
-
-      <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography variant="body1">CRC Project IGV App</Typography>
-          <Copyright />
-        </Container>
-      </footer>
     </div>
   );
 }
