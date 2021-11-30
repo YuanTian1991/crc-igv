@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/crc-igv/static/css/main.52da63d7.chunk.css",
-    "main.js": "/crc-igv/static/js/main.d7534489.chunk.js",
-    "main.js.map": "/crc-igv/static/js/main.d7534489.chunk.js.map",
-    "runtime-main.js": "/crc-igv/static/js/runtime-main.307e832e.js",
-    "runtime-main.js.map": "/crc-igv/static/js/runtime-main.307e832e.js.map",
-    "static/css/2.c2cb242e.chunk.css": "/crc-igv/static/css/2.c2cb242e.chunk.css",
-    "static/js/2.6382a3c1.chunk.js": "/crc-igv/static/js/2.6382a3c1.chunk.js",
-    "static/js/2.6382a3c1.chunk.js.map": "/crc-igv/static/js/2.6382a3c1.chunk.js.map",
-    "static/js/3.f92ec231.chunk.js": "/crc-igv/static/js/3.f92ec231.chunk.js",
-    "static/js/3.f92ec231.chunk.js.map": "/crc-igv/static/js/3.f92ec231.chunk.js.map",
+    "main.css": "/crc-igv/static/css/main.b229980f.chunk.css",
+    "main.js": "/crc-igv/static/js/main.abd823c2.chunk.js",
+    "main.js.map": "/crc-igv/static/js/main.abd823c2.chunk.js.map",
+    "runtime-main.js": "/crc-igv/static/js/runtime-main.55426d9c.js",
+    "runtime-main.js.map": "/crc-igv/static/js/runtime-main.55426d9c.js.map",
+    "static/css/2.dd52da21.chunk.css": "/crc-igv/static/css/2.dd52da21.chunk.css",
+    "static/js/2.abce9589.chunk.js": "/crc-igv/static/js/2.abce9589.chunk.js",
+    "static/js/2.abce9589.chunk.js.map": "/crc-igv/static/js/2.abce9589.chunk.js.map",
+    "static/js/3.c781c0f8.chunk.js": "/crc-igv/static/js/3.c781c0f8.chunk.js",
+    "static/js/3.c781c0f8.chunk.js.map": "/crc-igv/static/js/3.c781c0f8.chunk.js.map",
     "index.html": "/crc-igv/index.html",
-    "static/css/2.c2cb242e.chunk.css.map": "/crc-igv/static/css/2.c2cb242e.chunk.css.map",
-    "static/css/main.52da63d7.chunk.css.map": "/crc-igv/static/css/main.52da63d7.chunk.css.map",
-    "static/js/2.6382a3c1.chunk.js.LICENSE.txt": "/crc-igv/static/js/2.6382a3c1.chunk.js.LICENSE.txt"
+    "static/css/2.dd52da21.chunk.css.map": "/crc-igv/static/css/2.dd52da21.chunk.css.map",
+    "static/css/main.b229980f.chunk.css.map": "/crc-igv/static/css/main.b229980f.chunk.css.map",
+    "static/js/2.abce9589.chunk.js.LICENSE.txt": "/crc-igv/static/js/2.abce9589.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.307e832e.js",
-    "static/css/2.c2cb242e.chunk.css",
-    "static/js/2.6382a3c1.chunk.js",
-    "static/css/main.52da63d7.chunk.css",
-    "static/js/main.d7534489.chunk.js"
+    "static/js/runtime-main.55426d9c.js",
+    "static/css/2.dd52da21.chunk.css",
+    "static/js/2.abce9589.chunk.js",
+    "static/css/main.b229980f.chunk.css",
+    "static/js/main.abd823c2.chunk.js"
   ]
 }
