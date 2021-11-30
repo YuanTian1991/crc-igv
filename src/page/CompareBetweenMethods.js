@@ -62,7 +62,7 @@ export default function CompareBetweenMethods(props) {
     NL: "rgb(232, 72, 85, 0.4)",
   };
 
-  const [pheno, setPheno] = useState(null);
+  const [pheno, setPheno] = useState("NC");
   const [geneFeature, setGeneFeature] = useState("promoter");
 
   const geneList = [
@@ -154,6 +154,21 @@ export default function CompareBetweenMethods(props) {
       <Container component="main" className={classes.main} maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={6} style={{ textAlign: "left" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              style={{ textAlign: "center" }}
+            >
+              Compare Between bin-enrich method and troditional peak calling
+            </Typography>
+            <Typography variant="body2" gutterBottom style={{ padding: "5px" }}>
+              This webpage shows that bin-enrich method can: 1, identify genes
+              promoters/genebodys that hard to be peak-overlapped by troditional
+              peak calling ways. 2, reject promoter/genebodys troditional peak
+              calling method would get. You can select different phenotypes and
+              promoter/genebody to check the results.
+            </Typography>
+
             <div style={{ marginBottom: "10px" }}>
               <FormControl style={{ minWidth: 200 }}>
                 <InputLabel id="demo-simple-select-label">Phenotype</InputLabel>

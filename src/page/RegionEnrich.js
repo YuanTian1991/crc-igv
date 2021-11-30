@@ -38,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
     margin: "8px",
     border: "1px solid lightgray",
   },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+    cursor: "pointer",
+    margin: "5px",
+  },
 }));
 
 export default function Home() {
@@ -151,37 +157,44 @@ export default function Home() {
       <Container component="main" className={classes.main} maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={6} style={{ textAlign: "left" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              style={{ textAlign: "center" }}
+            >
+              Region Enrichment between 5hmC and 5mC
+            </Typography>
+            <Typography variant="body2" gutterBottom style={{ padding: "5px" }}>
+              These are result from troditional peak mapping methods (MACS2
+              calling). It will calculate "regions" across genome that have
+              5hmC/5mC enriched. The resolute of regions are not high, so I
+              invented bin-enriched solution for target-gene discovery. However,
+              these regions can still be used for transcript factor enrichment.
+            </Typography>
             <div style={{ marginBottom: "10px" }}>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
+              <Link
+                color="inherit"
+                noWrap
+                variant="body2"
+                className={classes.toolbarLink}
                 onClick={() => handleChangeGeneList(0)}
               >
-                5hmC
-              </Button>
-              <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
+                5hmC Regions (Peaks)
+              </Link>
+
+              <Link
+                color="inherit"
+                noWrap
+                variant="body2"
+                className={classes.toolbarLink}
                 onClick={() => handleChangeGeneList(1)}
               >
-                5mC
-              </Button>
-              {/* <Button
-                size="small"
-                variant="contained"
-                color="primary"
-                style={{ margin: "5px" }}
-                // onClick={() => handleChangeGeneList(2)}
-              >
-                Diff-5hmC
-              </Button> */}
-              <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
+                5mC Regions (Peaks)
+              </Link>
+
+              {/* <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
                 {geneList[glIndex].title}
-              </Typography>
+              </Typography> */}
             </div>
 
             <Tables

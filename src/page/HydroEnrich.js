@@ -42,8 +42,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     flexShrink: 0,
     cursor: "pointer",
-    border: "1px solid grey",
-    borderRadius: "5px",
     margin: "5px",
   },
 }));
@@ -193,7 +191,37 @@ export default function Home() {
       <Container component="main" className={classes.main} maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={6} style={{ textAlign: "left" }}>
-            <div style={{ marginBottom: "10px" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              style={{ textAlign: "center" }}
+            >
+              5hmC enrichment on Genes
+            </Typography>
+
+            <Typography variant="body2" gutterBottom style={{ padding: "5px" }}>
+              This is results of bin-enrich methods for 5hmC across 4
+              phenotypes. There are 4 tables:
+            </Typography>
+
+            <Typography variant="body2" gutterBottom style={{ padding: "5px" }}>
+              1. 5hmC enrichment status for gene promoters. 2. 5hmC enrichment
+              status for genebody. these two tables, "PhenoSig" column indicates
+              if this promoter/genebody is significant enriched by corresponding
+              pheno's 5hmC signals. Note that one promoter may have multiple
+              phenotypes significance.
+            </Typography>
+
+            <Typography variant="body2" gutterBottom style={{ padding: "5px" }}>
+              3. Unique 5hmC Genes in each phenotypes. 4. Unique 5hmC Genes in
+              each phenotypes. This "unique" status is calculated by 2 rules:
+              first a gene must be significant in certain phenotype, and second,
+              the 5hmC mean value in corresponding phenotype must be at least
+              0.2 higher than other phenotye.{" "}
+              <b>Note that, here NL is not included.</b>
+            </Typography>
+
+            <div style={{ marginBottom: "10px", marginTop: "20px" }}>
               {geneList.map((g, index) => {
                 return (
                   <Link
@@ -207,9 +235,9 @@ export default function Home() {
                   </Link>
                 );
               })}
-              <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
+              {/* <Typography style={{ marginBottom: "10px", marginTop: "10px" }}>
                 {geneList[glIndex].title}
-              </Typography>
+              </Typography> */}
             </div>
 
             <Tables
