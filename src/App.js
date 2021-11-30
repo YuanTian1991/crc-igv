@@ -15,8 +15,8 @@ import { Container } from "@material-ui/core";
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <HashRouter>
+      <HashRouter>
+        <Layout>
           <Switch>
             <Route exact path="/" component={HydroEnrich} />
             <Route exact path="/OldResult" component={Home} />
@@ -28,8 +28,8 @@ function App() {
             />
             <Route exact path="/TargetGenes" component={TargetGenes} />
           </Switch>
-        </HashRouter>
-      </Layout>
+        </Layout>
+      </HashRouter>
     </div>
   );
 }

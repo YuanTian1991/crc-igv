@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import StarIcon from "@material-ui/icons/StarBorder";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+    textDecoration: "none",
+    color: "black",
+    fontWeight: "900",
   },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
@@ -80,9 +83,9 @@ export default function Layout(props) {
 
   const sections = [
     { title: "5hmC Genes", url: "/" },
-    { title: "5hmC Regions", url: "/#RegionEnrich" },
-    { title: "Compare Methods", url: "/#CompareBetweenMethods/LT" },
-    { title: "Target Genes", url: "/#TargetGenes" },
+    { title: "5hmC Regions", url: "/RegionEnrich" },
+    { title: "Compare Methods", url: "/CompareBetweenMethods/LT" },
+    { title: "Target Genes", url: "/TargetGenes" },
   ];
 
   return (
@@ -110,7 +113,7 @@ export default function Layout(props) {
                   key={index}
                   variant="button"
                   color="textPrimary"
-                  href={s.url}
+                  to={s.url}
                   className={classes.link}
                 >
                   {s.title}
