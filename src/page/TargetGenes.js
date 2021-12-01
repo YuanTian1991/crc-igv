@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 
 import Tables from "../component/Home/Tables";
+import ExpressionBoxplot from "../component/Expression/ExpressionBoxplot";
 
 import igv from "igv";
 
@@ -45,6 +46,7 @@ export default function TargetGenes() {
   const classes = useStyles();
   const [browser, setBrowser] = useState(null);
   const [targetGene, setTargetGene] = useState("BRCA1");
+  const [expressionGene, setExpressionGene] = useState("BRCA1");
 
   useEffect(() => {
     var igvContainer = document.getElementById("igv-div");
@@ -116,7 +118,8 @@ export default function TargetGenes() {
 
   const handleChangeIGV = (gene) => {
     console.log(gene);
-    setTargetGene(gene);
+    setTargetGene(gene.coordinate);
+    setExpressionGene(gene.symbol);
   };
 
   return (
@@ -148,6 +151,7 @@ export default function TargetGenes() {
 
           <Grid item xs={6}>
             <div id="igv-div" className={classes.igvStyle}></div>
+            <ExpressionBoxplot expressionGene={expressionGene} />
           </Grid>
         </Grid>
       </Container>

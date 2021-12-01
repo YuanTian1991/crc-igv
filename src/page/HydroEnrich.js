@@ -168,7 +168,7 @@ export default function Home() {
 
   const handleChangeIGV = (gene) => {
     console.log(gene);
-    setTargetGene(gene);
+    setTargetGene(gene.coordinate);
   };
 
   useEffect(() => {

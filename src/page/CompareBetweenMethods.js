@@ -123,7 +123,7 @@ export default function CompareBetweenMethods(props) {
 
   const handleChangeIGV = (gene) => {
     console.log(gene);
-    setTargetGene(gene);
+    setTargetGene(gene.coordinate);
   };
 
   useEffect(() => {

@@ -80,7 +80,7 @@ export default function Tables(props) {
 
   const handleSelectGene = (gene) => {
     let coordinate = gene.chr + ":" + gene.start + "-" + gene.end;
-    props.selectGene(coordinate);
+    props.selectGene({ coordinate: coordinate, symbol: gene.geneSymbol });
   };
 
   const onGlobalSearch = (globalInput, rows) => {
